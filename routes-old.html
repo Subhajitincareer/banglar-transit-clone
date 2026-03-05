@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="বাংলার TRANSIT – বাস রুট খুঁজুন। 700+ routes covering Kolkata and West Bengal." />
+  <title>Search for Routes – বাংলার TRANSIT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Filter chips ── */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 0 auto 1.5rem;
+      max-width: 820px;
+    }
+    .filter-chip {
+      padding: 0.4rem 1.1rem;
+      border-radius: 25px;
+      border: 2px solid var(--maroon);
+      background: transparent;
+      color: var(--maroon);
+      font-family: var(--font-main);
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.22s ease;
+      user-select: none;
+    }
+    .filter-chip:hover { background: var(--maroon); color: #fff; }
+    .filter-chip.active { background: var(--maroon); color: #fff; }
+
+    .filter-chip[data-type="suburban"]{ border-color:#0369a1; color:#0369a1; }
+    .filter-chip[data-type="suburban"]:hover,
+    .filter-chip[data-type="suburban"].active{ background:#0369a1; color:#fff; }
+
+    .filter-chip[data-type="ac"]{ border-color:#065f46; color:#065f46; }
+    .filter-chip[data-type="ac"]:hover,
+    .filter-chip[data-type="ac"].active{ background:#065f46; color:#fff; }
+
+    .filter-chip[data-type="district"]{ border-color:#92400e; color:#92400e; }
+    .filter-chip[data-type="district"]:hover,
+    .filter-chip[data-type="district"].active{ background:#92400e; color:#fff; }
+
+    /* Result count */
+    .result-meta {
+      max-width: 820px;
+      margin: 0 auto 1rem;
+      font-size: 0.88rem;
+      color: #666;
+      font-weight: 500;
+    }
+
+    /* No results */
+    .no-results {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: #888;
+    }
+    .no-results strong { display: block; font-size: 1.2rem; margin-bottom: 0.5rem; color: #444; }
+
+    /* Card animate */
+    @keyframes cardIn {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .card-animate { animation: cardIn 0.35s ease both; }
+
+    /* Shake */
+    @keyframes shake {
+      0%,100%{ transform: translateX(0) }
+      20%    { transform: translateX(-8px) }
+      40%    { transform: translateX(8px) }
+      60%    { transform: translateX(-5px) }
+      80%    { transform: translateX(5px) }
+    }
+    .input-shake { animation: shake 0.5s ease; border-color: red !important; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">বাংলার<span>TRANSIT</span></a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links" id="nav-links">
+        <a href="routes.html" class="nav-link highlight">Search for routes</a>
+        <a href="trams.html" class="nav-link">Trams</a>
+        <a href="bus-explorer.html" class="nav-link">Bus Explorer</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <h1>Search for Routes</h1>
+    <p>Find your bus route from 700+ routes across Kolkata &amp; West Bengal</p>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="page-content">
+
+    <!-- Search modes -->
+    <div class="search-modes" style="max-width:820px;margin:0 auto 1.5rem;">
+      <label class="search-mode-label">
+        <input type="radio" name="search_mode" value="routes" checked>
+        <span class="custom-radio"></span>
+        Routes
+      </label>
+      <label class="search-mode-label">
+        <input type="radio" name="search_mode" value="places">
+        <span class="custom-radio"></span>
+        Places
+      </label>
+    </div>
+
+    <!-- Search bar -->
+    <div class="route-search-wrap" style="max-width:820px;margin:0 auto 1.2rem">
+      <input type="text" id="route-input"
+        placeholder="Route number, from or destination (e.g. 30A, Howrah)…"
+        aria-label="Search routes" autocomplete="off" />
+      <button id="route-search-btn">Search</button>
+    </div>
+
+    <!-- Filter chips -->
+    <div class="filter-bar">
+      <button class="filter-chip active" data-type="all">All</button>
+      <button class="filter-chip" data-type="city">🏙 City</button>
+      <button class="filter-chip" data-type="suburban">🌆 Suburban</button>
+      <button class="filter-chip" data-type="ac">❄️ AC Buses</button>
+      <button class="filter-chip" data-type="district">🗺 District</button>
+    </div>
+
+    <!-- Result count -->
+    <p class="result-meta" id="result-count"></p>
+
+    <!-- Route list -->
+    <div class="route-list" id="route-list" style="max-width:820px;margin:0 auto"></div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <a href="https://www.facebook.com" target="_blank" rel="noopener" class="footer-link">Go to our Facebook page</a>
+      <a href="mailto:bangapopb@gmail.com" class="footer-link">Contact us at bangapopb@gmail.com</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

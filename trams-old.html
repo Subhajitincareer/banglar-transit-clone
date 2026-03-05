@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="বাংলার TRANSIT – Kolkata Tram Routes. Discover the iconic heritage tram network." />
+  <title>Trams – বাংলার TRANSIT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .tram-page-header { background: linear-gradient(135deg, #14532d 0%, #15803d 100%); }
+
+    .tram-hero-img {
+      width: 100%;
+      max-height: 360px;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      margin-bottom: 2rem;
+    }
+
+    .tram-info-box {
+      background: #f0fdf4;
+      border-left: 5px solid #15803d;
+      border-radius: 10px;
+      padding: 1.4rem 2rem;
+      margin-bottom: 2rem;
+      color: #14532d;
+      line-height: 1.75;
+      font-size: 1rem;
+    }
+
+    .tram-info-box strong { color: #15803d; }
+
+    .tram-section-title {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: #15803d;
+      letter-spacing: 3px;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Tram card override colour */
+    .route-card.tram-card:hover { border-left: 4px solid #15803d; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">বাংলার<span>TRANSIT</span></a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links" id="nav-links">
+        <a href="routes.html" class="nav-link">Search for routes</a>
+        <a href="trams.html" class="nav-link highlight">Trams</a>
+        <a href="bus-explorer.html" class="nav-link">Bus Explorer</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header tram-page-header">
+    <h1>🚃 Trams</h1>
+    <p>Kolkata's iconic heritage trams — one of Asia's last surviving tram networks</p>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="page-content">
+
+    <img src="images/tram.png" alt="Kolkata Tram" class="tram-hero-img" />
+
+    <div class="tram-info-box">
+      <p>Kolkata has one of the oldest tram networks in Asia, operated by the
+      <strong>Calcutta Tramways Company (CTC)</strong>. These heritage trams are a
+      beloved part of the city's identity, concentrated in Kolkata's central areas.
+      They run at a leisurely pace, offering a unique glimpse into the city's colonial past.</p>
+    </div>
+
+    <h2 class="tram-section-title">Active Tram Routes</h2>
+
+    <!-- Routes are injected by script.js initTramsPage() -->
+    <div class="route-list" id="tram-routes" style="max-width:820px"></div>
+
+    <div class="tram-info-box" style="margin-top:2rem">
+      <strong>🕐 Operating Hours:</strong> Approximately <strong>6:00 AM – 10:30 PM</strong>.
+      Frequent intervals during peak hours (8–10 AM, 5–8 PM).<br/>
+      <strong>💳 Fare:</strong> Starting from ₹7. Concessional passes available for students and seniors.<br/>
+      <strong>📍 Note:</strong> For the most accurate schedule, check the nearest tram stop or
+      contact the Calcutta Tramways Company.
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <a href="https://www.facebook.com" target="_blank" rel="noopener" class="footer-link">Go to our Facebook page</a>
+      <a href="mailto:bangapopb@gmail.com" class="footer-link">Contact us at bangapopb@gmail.com</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

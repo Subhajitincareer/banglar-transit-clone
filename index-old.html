@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="bn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="বাংলার TRANSIT - পশ্চিমবঙ্গের পরিবহন সম্পর্কে একটি সম্পূর্ণ গাইড। বাস ও ট্রাম রুট খুঁজুন।"
+    />
+    <title>বাংলার TRANSIT - Your Own Transport Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- HEADER / NAVBAR -->
+    <header class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">বাংলার<span>TRANSIT</span></a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="nav-links" id="nav-links">
+          <a href="routes.html" class="nav-link">Search for routes</a>
+          <a href="trams.html" class="nav-link">Trams</a>
+          <a href="bus-explorer.html" class="nav-link highlight"
+            >Bus Explorer</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="hero-sub">YOUR OWN</p>
+        <h1 class="hero-title">TRANSPORT<br /><span>GUIDE</span></h1>
+        <div class="hero-badge">
+          <p>Now Including</p>
+          <ul>
+            <li>400+ pictures</li>
+            <li>700+ routes</li>
+          </ul>
+        </div>
+      </div>
+      <div class="hero-scroll-indicator">
+        <div class="scroll-arrow"></div>
+      </div>
+    </section>
+
+    <!-- WELCOME SECTION -->
+    <section class="welcome-section">
+      <div class="content-block">
+        <div class="content-img">
+          <img
+            src="images/bus-terminus.png"
+            alt="Garia Nagarik Bus Terminus"
+            loading="lazy"
+          />
+        </div>
+        <div class="content-text">
+          <p>
+            We welcome you to <strong>BANGLAR TRANSIT</strong>, where we aim to
+            provide you a comprehensive guide on transport within the state of
+            <strong>West Bengal</strong>.
+          </p>
+        </div>
+      </div>
+
+      <div class="content-block reverse">
+        <div class="content-img">
+          <img
+            src="images/hero-bg.png"
+            alt="Esplanade Bus Terminus"
+            loading="lazy"
+          />
+        </div>
+        <div class="content-text">
+          <p>
+            To get started, you can either search for routes in
+            <a href="routes.html"><strong>Search for routes</strong></a> menu
+            option, or explore bus routes categorically through the
+            <a href="bus-explorer.html"><strong>Bus Explorer</strong></a> menu
+            option.
+          </p>
+        </div>
+      </div>
+
+      <div class="content-block">
+        <div class="content-img">
+          <img src="images/tram.png" alt="Tollygunge Tram" loading="lazy" />
+        </div>
+        <div class="content-text">
+          <p>
+            Now we have tram routes too. Just head on to the
+            <a href="trams.html"><strong>Trams</strong></a> section.
+          </p>
+        </div>
+      </div>
+
+      <div class="content-block reverse wide-text">
+        <div class="content-text">
+          <p>
+            Currently most of the focus has been made towards the bus services
+            in and around Kolkata. But we aim to gradually increase our coverage
+            to the whole of West Bengal, and include other modes of transports,
+            like autos, magics and trekkers.
+          </p>
+        </div>
+        <div class="content-img">
+          <img src="images/wb-bus.png" alt="West Bengal Bus" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS SECTION -->
+    <section class="stats-section">
+      <div class="stats-container">
+        <div class="stat-card">
+          <div class="stat-number">700+</div>
+          <div class="stat-label">Bus Routes</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">400+</div>
+          <div class="stat-label">Pictures</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">3</div>
+          <div class="stat-label">Transport Modes</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">1</div>
+          <div class="stat-label">Complete Guide</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section class="features-section">
+      <h2 class="section-title">What We Offer</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🚌</div>
+          <h3>Bus Routes</h3>
+          <p>
+            Explore 700+ bus routes covering Kolkata and the surrounding areas
+            of West Bengal. Find the right bus for your journey.
+          </p>
+          <a href="bus-explorer.html" class="feature-link">Explore Buses →</a>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🚃</div>
+          <h3>Tram Routes</h3>
+          <p>
+            Discover Kolkata's iconic heritage tram routes — one of the few
+            remaining tram networks in Asia.
+          </p>
+          <a href="trams.html" class="feature-link">Explore Trams →</a>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔍</div>
+          <h3>Route Search</h3>
+          <p>
+            Quickly search for a specific route by number or destination. Your
+            journey starts here.
+          </p>
+          <a href="routes.html" class="feature-link">Search Routes →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROUTE SEARCH TEASER -->
+    <section class="search-teaser">
+      <div class="search-teaser-content">
+        <h2>Find Your Route</h2>
+        <p>Search from 700+ routes covering Kolkata and West Bengal</p>
+        
+        <div class="search-modes">
+          <label class="search-mode-label">
+            <input type="radio" name="teaser_search_mode" value="routes" checked>
+            <span class="custom-radio"></span>
+            Routes
+          </label>
+          <label class="search-mode-label">
+            <input type="radio" name="teaser_search_mode" value="places">
+            <span class="custom-radio"></span>
+            Places
+          </label>
+        </div>
+
+        <div class="search-box">
+          <input
+            type="text"
+            placeholder="Enter route number or destination..."
+            aria-label="Search routes"
+          />
+          <button>Search</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-container">
+        <a
+          href="https://www.facebook.com"
+          target="_blank"
+          rel="noopener"
+          class="footer-link"
+          >Go to our Facebook page</a
+        >
+        <a href="mailto:bangapopb@gmail.com" class="footer-link"
+          >Contact us at bangapopb@gmail.com</a
+        >
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

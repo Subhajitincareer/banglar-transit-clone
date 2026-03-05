@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="বাংলার TRANSIT – Bus Explorer. Explore bus routes by area and category." />
+  <title>Bus Explorer – বাংলার TRANSIT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .explorer-hero-img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 16px;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow);
+    }
+
+    .explorer-intro {
+      background: #fff8f0;
+      border-left: 5px solid var(--maroon);
+      border-radius: 10px;
+      padding: 1.2rem 1.8rem;
+      margin-bottom: 2rem;
+      font-size: 1rem;
+      color: #444;
+      line-height: 1.7;
+    }
+
+    .explorer-intro strong { color: var(--maroon); }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">বাংলার<span>TRANSIT</span></a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links" id="nav-links">
+        <a href="routes.html" class="nav-link">Search for routes</a>
+        <a href="trams.html" class="nav-link">Trams</a>
+        <a href="bus-explorer.html" class="nav-link highlight">Bus Explorer</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <h1>Bus Explorer</h1>
+    <p>Browse bus routes by area and category – click any chip to see full details</p>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="page-content">
+
+    <img src="images/wb-bus.png" alt="West Bengal Bus" class="explorer-hero-img" />
+
+    <div class="explorer-intro">
+      <strong>How to use:</strong> Select a category tab below to filter routes by area.
+      Click any route chip to jump directly to its full details in the
+      <a href="routes.html" style="color:var(--maroon);font-weight:600">Route Search</a> page.
+    </div>
+
+    <!-- Category Tabs – driven by JS -->
+    <div class="tab-bar" id="tab-bar">
+      <button class="tab-btn active" data-cat="all">🗺 All Routes</button>
+      <button class="tab-btn" data-cat="kolkata">🏙 Kolkata City</button>
+      <button class="tab-btn" data-cat="suburban">🌆 Suburban</button>
+      <button class="tab-btn" data-cat="ac">❄️ AC Buses</button>
+      <button class="tab-btn" data-cat="district">🗺 District</button>
+    </div>
+
+    <!-- Route chips are injected by script.js initBusExplorer() -->
+    <div id="explorer-content"></div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <a href="https://www.facebook.com" target="_blank" rel="noopener" class="footer-link">Go to our Facebook page</a>
+      <a href="mailto:bangapopb@gmail.com" class="footer-link">Contact us at bangapopb@gmail.com</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
