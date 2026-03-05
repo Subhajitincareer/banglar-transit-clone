@@ -52,7 +52,7 @@ export default function Trams() {
         
         {!loading && !error && trams.length > 0 && trams.map((t, i) => (
           <Link 
-            to={`/route/${t.num}`}
+            to={`/route-details?route_num=${encodeURIComponent(t.num)}`}
             key={`${t.num}-${i}`}
             className="route-card tram-card"
             style={{
