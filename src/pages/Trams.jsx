@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import useScrollReveal from '../hooks/useScrollReveal';
 import './Trams.css';
 
@@ -50,12 +51,14 @@ export default function Trams() {
         {error && <div className="no-results" style={{ color: 'red' }}><strong>{error}</strong></div>}
         
         {!loading && !error && trams.length > 0 && trams.map((t, i) => (
-          <div 
+          <Link 
+            to={`/route/${t.num}`}
             key={`${t.num}-${i}`}
             className="route-card tram-card"
             style={{
               opacity: 0,
               transform: 'translateY(30px)',
+              textDecoration: 'none',
               transition: `opacity 0.5s ease ${i * 0.08}s, transform 0.5s ease ${i * 0.08}s`,
             }}
             ref={(el) => {
@@ -79,7 +82,7 @@ export default function Trams() {
               </span>
               <div className="route-arrow" style={{ color: '#15803d' }}>›</div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
 

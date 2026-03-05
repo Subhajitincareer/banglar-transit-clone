@@ -97,7 +97,8 @@ app.get('/api/routes', (req, res) => {
 // GET /api/routes/:num
 app.get('/api/routes/:num', (req, res) => {
   const num = req.params.num.toUpperCase();
-  const route = ALL_ROUTES.find(r => r.num.toUpperCase() === num);
+  const route = ALL_ROUTES.find(r => r.num.toUpperCase() === num) || 
+                TRAM_ROUTES.find(r => r.num.toUpperCase() === num);
   
   if (!route) {
     return res.status(404).json({ error: 'Route not found' });
