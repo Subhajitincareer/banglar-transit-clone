@@ -128,7 +128,7 @@ app.get('/api/trams', (req, res) => {
 });
 
 // Serve React app for any other route not handled by API
-app.get('*', (req, res) => {
+app.get(/.*/, (req, res) => {
   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
